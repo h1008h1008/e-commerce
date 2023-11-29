@@ -1,0 +1,51 @@
+<div class="ContentArea w-200 h-screen px-6 py-12 flex-col justify-start items-start gap-4 inline-flex">
+  <div class="NavLink p-2 rounded-lg justify-center items-center gap-2 inline-flex">
+    <div class="Icon w-6 h-6 relative"></div>
+    <div class="Link text-stone-900 text-xl font-normal">Back</div>
+  </div>
+  <div class="mainproduct">
+        <div class="TopArea w-400 justify-start items-start gap-6 inline-flex">
+          <div class="ImageArea p-2 justify-start items-start gap-4 flex">
+            <div class="MainImage p-2 bg-white rounded-xl justify-start items-start gap-2.5 flex">
+              <div class="ProductImage w-60 h-72 flex-col justify-center items-center inline-flex">
+                <img class="Image w-60 h-72" src="{{ productDetail.imageUrl }}" />
+              </div>
+            </div>
+          </div>
+          <div class="TextContent grow shrink basis-0 p-2 flex-col justify-start items-start inline-flex">
+            <div class="Header p-2 flex-col justify-start items-start gap-2 flex">
+              <div class="AppleWatch text-stone-900 text-6xl font-bold">{{ productDetail.productName }}</div>
+              <div class="Series5Se text-stone-900 text-opacity-50 text-3xl font-medium">{{ productDetail.productDescription }}</div>
+            </div>
+            <div class="Special px-2 py-4 justify-start items-center gap-2 inline-flex">
+              <div class="Rating pr-4 justify-center items-center gap-2 flex">
+                <div class="Star01 w-6 h-6 relative"></div>
+                <div class="Star02 w-6 h-6 relative"></div>
+                <div class="Star03 w-6 h-6 relative"></div>
+                <div class="Star04 w-6 h-6 relative"></div>
+                <div class="Star05 w-6 h-6 relative"></div>
+              </div>
+              <div class="55 text-emerald-700 text-xl font-normal">{{productDetail.productstar}}</div>
+            </div>
+            <div class="52999 text-stone-900 text-3xl font-medium">{{ productDetail.productPrice }}</div>
+            <div class="ShortDescription self-stretch h-32 p-2 justify-start items-start gap-2.5 inline-flex">
+              <div class="briefDescription grow shrink basis-0 self-stretch text-stone-900 text-xl font-normal">{{ productDetail.productDescriptionshort }}</div>
+            </div>
+            <div class="Cta self-stretch h-14 p-2 flex-col justify-center items-end gap-2.5 flex">
+              <div class="Button px-6 py-2 bg-stone-900 rounded-2xl justify-center items-center gap-2 inline-flex">
+                <div class="Icon w-6 h-6 relative"></div>
+                <div class="Button text-white text-xl font-medium" id="plus" value={{productDetail.productindex}}>Add to Bag</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="BottomArea self-stretch h-96 p-2 flex-col justify-start items-center gap-4 flex">
+          <div class="Line2 w-96 h-px border border-stone-900 border-opacity-50"></div>
+          <div class="Description self-stretch h-96 px-2 py-4 flex-col justify-start items-start gap-2 flex">
+            <div class="Description text-stone-900 text-3xl font-medium">Description</div>
+            <div class="Description self-stretch h-96 text-zinc-600 text-xl font-normal">{{ productDetail.productDescriptionlong }}</div>
+          </div>
+        </div>
+  </div>
+</div>
+<script src="\js\product.js"></script>

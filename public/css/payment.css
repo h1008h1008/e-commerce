@@ -1,0 +1,30 @@
+
+.Wrapper {
+    background-color:  #f2f2f2; /* Equivalent to bg-gray-200 */
+    justify-content: center; /* Equivalent to justify-center */
+    align-items: flex-start; /* Equivalent to items-start */
+    margin: 0; /* Equivalent to m-0 */
+    padding: 0; /* Equivalent to p-0 */
+    height: 100vh; /* Equivalent to h-screen */
+    width: 100vw; /* Equivalent to w-screen */
+    display: flex; /* Equivalent to flex */
+    overflow: auto;
+}
+.Center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Bi.bi-cart-plus path {
+    fill: white; /* Set the fill color to white */
+}
+.Button {
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Button:hover {
+    background-color: gray; /* Set the background color to gray when hovered */
+}
+

@@ -1,0 +1,27 @@
+
+.Center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Bi.bi-cart-plus path {
+  fill: white; /* Set the fill color to white */
+}
+.NavLink {
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.NavLink:hover {
+  background-color: gray; /* Set the background color to gray when hovered */
+}
+.Button {
+  background-color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.Button:hover {
+  background-color: gray; /* Set the background color to gray when hovered */
+}

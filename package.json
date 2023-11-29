@@ -1,0 +1,39 @@
+{
+  "name": "web-02-h1008h1008",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ooschool/web-02-h1008h1008.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ooschool/web-02-h1008h1008/issues"
+  },
+  "homepage": "https://github.com/ooschool/web-02-h1008h1008#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "config": "^3.3.9",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ecpay_aio_nodejs": "^1.0.2",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.17.3",
+    "googleapis": "^128.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.2.0",
+    "nodemailer": "^6.9.7",
+    "sequelize": "^6.30.0",
+    "sequelize-cli": "^6.6.0",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.1"
+  }
+}
