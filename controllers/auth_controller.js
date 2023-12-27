@@ -4,6 +4,7 @@ const {
   createresetTokens,
   validateresetToken,
 } = require("../service/JWT");
+const {  verify } = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const { Member, Cart, CartProduct } = require("../models/modelsforapp");
 const auth_controller = {
@@ -13,6 +14,10 @@ const auth_controller = {
   renderLoginPageHandler: (req, res) => {
     const token = req.cookies["access-token"];
     if (validateresetToken(token)) {
+      const validToken = verify(token, process.env.JWT_SECRET);
+      if (validToken.username === 'admin') {
+        return res.redirect('/admin');
+      }
       res.render("payment", {  flag: "0" });
     } else {
       res.render("login");
@@ -162,6 +167,7 @@ const auth_controller = {
     });
   },
   renderprofilePageHandler: async (req, res) => {
+    
     res.render("payment");
   },
 };
