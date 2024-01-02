@@ -18,7 +18,6 @@ async function getproduct() {
           productPrice: `$ ${product.price.toFixed(2)}`,
           shoppingtag: "0",
           productindex: `${index}`,
-          id:product.id,
           quantity: 1,
         };
       });
@@ -146,38 +145,6 @@ const product_controller = {
     );
     if (productDetail) {
       res.render("product", { productDetail, flag: "0" });
-    } else {
-      res.render("not_found");
-    }
-  },
-  returnadminHandler: async (req, res) => {
-    let productDatalist = await getproduct();
-    res.render("admin",{ productDatalist});
-  },
-  returneditHandler: async (req, res) => {
-    const productId = req.params.productId;
-    let productDetail;
-    if(productId == -1){
-      productDetail = {
-        imageUrl: 'https://via.placeholder.com/159x200?text=Product???',
-        imageUrlsquare: 'https://via.placeholder.com/64x64',
-        productName: 'product-???',
-        productDescription: 'Description for Product ???',
-        productDescriptionshort: 'Specification for Product ???',
-        productPrice: '$ ???',
-        shoppingtag: '0',
-        productindex: '-1',
-        quantity: 1
-      }      
-    }
-    else{
-      let productDatalist = await getproduct();
-      productDetail = productDatalist.find(
-        (product) => product.productindex === productId
-      );
-    }
-    if (productDetail) {
-      res.render("edit", { productDetail });
     } else {
       res.render("not_found");
     }
