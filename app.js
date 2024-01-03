@@ -12,7 +12,7 @@ const pay_router = require("./routes/pay_router");
 const auth_router = require("./routes/auth_router");
 const app = express();
 const port = 3000;
-var session = require("express-session");
+var session = require("cookie-session");
 app.use(
   session({
     secret: "keyboard cat",
