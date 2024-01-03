@@ -35,27 +35,31 @@ const api_controller = {
         let memberId = decoded.id;
         if (memberId) {
           const Cart1 = await Cart.findOne({ where: { member_id: memberId } });
-          const existtable = await CartProduct.findOne({
-            where: { cart_id: Cart1.id },
-          });
-          if (existtable) {
-            const productCountMap = existtable["product_id_and_count"];
-            productDatalist.forEach((product) => {
-              const productId = product.productindex;
-              if (
-                productCountMap &&
-                productCountMap.hasOwnProperty(productId)
-              ) {
-                product.shoppingtag = "1";
-                product.quantity = productCountMap[productId];
-              }
+          if(Cart1){
+            const existtable = await CartProduct.findOne({
+              where: { cart_id: Cart1.id },
             });
-          } else {
-            await CartProduct.create({
-              cart_id: Cart1.id,
-              product_id_and_count: null,
-            });
+            if (existtable) {
+              const productCountMap = existtable["product_id_and_count"];
+              productDatalist.forEach((product) => {
+                const productId = product.productindex;
+                if (
+                  productCountMap &&
+                  productCountMap.hasOwnProperty(productId)
+                ) {
+                  product.shoppingtag = "1";
+                  product.quantity = productCountMap[productId];
+                }
+              });
+            } else {
+              await CartProduct.create({
+                cart_id: Cart1.id,
+                product_id_and_count: null,
+              });
+            }
           }
+          
+          
 
           const responseData = {
             products: productDatalist,
