@@ -28,7 +28,7 @@ const auth_controller = {
   },
   renderlogoutPageHandler: (req, res) => {
     res.clearCookie("access-token");
-    res.render("index");
+    res.render("login");
   },
   renderResetPageHandler: (req, res) => {
     if (validateresetToken(req.query.token)) {

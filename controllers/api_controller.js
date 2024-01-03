@@ -95,18 +95,22 @@ const api_controller = {
         let memberId = decoded.id;
         if (memberId) {
           const Cart1 = await Cart.findOne({ where: { member_id: memberId } });
-          const existtable = await CartProduct.findOne({
-            where: { cart_id: Cart1.id },
-          });
-          if (existtable) {
-            existtable.product_id_and_count = resultObject;
-            await existtable.save();
-          } else {
-            await CartProduct.create({
-              cart_id: Cart1.id,
-              product_id_and_count: resultObject,
+          if(Cart1){
+            const existtable = await CartProduct.findOne({
+              where: { cart_id: Cart1.id },
             });
+            if (existtable) {
+              existtable.product_id_and_count = resultObject;
+              await existtable.save();
+            } else {
+              await CartProduct.create({
+                cart_id: Cart1.id,
+                product_id_and_count: resultObject,
+              });
+            }
           }
+
+          
         }
       });
     }

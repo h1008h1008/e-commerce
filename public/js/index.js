@@ -34,12 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
       productDatalist = data.products;
       auth = data.auth;
       if (auth == 0) {
-        const storedResultObject = localStorage.getItem("productDatalist");
-        if (storedResultObject) {
-          productDatalist = JSON.parse(storedResultObject);
-        }
+        alert("請先登入")
       }
-      sources = `{{#each productDatalist}}
+      else{
+        sources = `{{#each productDatalist}}
                 {{#eq shoppingtag "1"}}
                 <li class="BagItem p-2 bg-white rounded-xl justify-start items-center gap-4 flex">
                     <div class="ProductImage w-16 h-16 justify-center items-center flex">
@@ -63,21 +61,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
       renderProducts();
+      }
+      
       var buttons = document.querySelectorAll(".Button");
       buttons.forEach(function (button) {
         button.addEventListener("click", function () {
-          var num = button.getAttribute("value");
-          if (num >= 0 && num < productDatalist.length) {
-            productDatalist[num].shoppingtag = "1";
-            renderProducts();
-            localStorage.setItem(
-              "productDatalist",
-              JSON.stringify(productDatalist)
-            );
-            updateProducts(productDatalist);
-          } else {
-            console.error("Invalid product index");
+          if (auth == 0) {
+
+            alert("請先登入")
           }
+          else{
+            var num = button.getAttribute("value");
+            if (num >= 0 && num < productDatalist.length) {
+              productDatalist[num].shoppingtag = "1";
+              renderProducts();
+              localStorage.setItem(
+                "productDatalist",
+                JSON.stringify(productDatalist)
+              );
+              updateProducts(productDatalist);
+            } else {
+              console.error("Invalid product index");
+            }
+          }
+          
         });
       });
     })
