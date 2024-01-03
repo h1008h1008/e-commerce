@@ -1,5 +1,6 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+require('dotenv');
 const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -46,5 +47,5 @@ app.use("/",product_router);
 app.use("/", express.static(publicPath));
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on ${process.env.HOST}`);
 });
