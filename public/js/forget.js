@@ -13,6 +13,7 @@ document.getElementById("resetbtn").addEventListener("click", function (e) {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
+      alert("信箱更改密碼")
     })
     .catch((error) => {
       console.error("Error:", error);
