@@ -1,6 +1,25 @@
+require('dotenv').config();
 const Sequelize = require('sequelize');
-const config = require('../config/config.json');
-const developmentConfig = config.development;
+const developmentConfig = {
+  "username": process.env.DB_USERNAME,
+  "password": process.env.DB_PASSWORD,
+  "database": process.env.DB_DATABASE,
+  "host": process.env.DB_HOST,
+  "port": 5432,
+  "dialect": "postgres",
+  "dialectOptions": {
+    "ssl": {
+      "require": true,
+      "rejectUnauthorized": false
+    }
+  },
+  "pool": {
+    "max": 64, 
+    "min": 2, 
+    "acquire": 300000, 
+    "idle": 30000 
+  }
+};
 const sequelize = new Sequelize(developmentConfig);
 
 const Member = sequelize.define('member', {
