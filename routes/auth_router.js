@@ -17,6 +17,7 @@ auth_router.get('/login', (req, res) => {
 
 auth_router.get('/google/callback', async (req, res) => {
   const code = req.query.code;
+  console.log(123)
   try {
     const { tokens } = await googleOAuth2Client.getToken(code)
 
