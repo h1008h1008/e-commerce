@@ -1,0 +1,29 @@
+<div class="user-list-wrapper w-60 mx-auto mt-16 p-4 rounded-lg shadow-lg bg-white">
+    <img class="Image w-60 h-72" src="{{ productDetail.imageUrl }}" />
+    <form >
+        <div class="mb-4">
+            <label for="fieldName" class="block text-sm font-medium text-gray-700" data-productindex ="{{ productDetail.id}}">Product Name</label>
+            <input type="text" id="productName" class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder = {{ productDetail.productName }}>
+        </div>
+        <div class="mb-4">
+            <label for="fieldName" class="block text-sm font-medium text-gray-700">product Description</label>
+            <input type="text" id="productDescription" class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder = '{{ productDetail.productDescription  }}'>
+        </div>
+        <div class="mb-4">
+            <label for="fieldName" class="block text-sm font-medium text-gray-700"> product Price</label>
+            <input type="text" id="productPrice" class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder = "{{  productDetail.productPrice }}">
+        </div>
+        <div class="mb-4">
+            <label for="fieldName" class="block text-sm font-medium text-gray-700">product Description short</label>
+            <input type="text" id="productDescriptionshort" class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder = '{{ productDetail.productDescriptionshort }}'>
+        </div>
+        <div class="mb-4">
+            <label for="fieldName" class="block text-sm font-medium text-gray-700">product imageUrl</label>
+            <input type="text" id="productimageUrl" class="mt-1 block w-full rounded-md border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder = '{{ productDetail.imageUrl }}'>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >
+            Submit
+        </button>
+    </form>
+</div>
+<script src="\js\edit.js"></script>

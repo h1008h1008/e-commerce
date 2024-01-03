@@ -1,5 +1,5 @@
 {
-  "development": {
+  "test": {
     "username": "root",
     "password": "Goodgood1008",
     "database": "web",
@@ -7,11 +7,12 @@
     "port": 3306,
     "dialect": "mysql"
   },
-  "test": {
+  "development": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "Goodgood1008",
+    "database": "web",
     "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   },
   "production": {

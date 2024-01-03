@@ -1,17 +1,7 @@
 const Sequelize = require('sequelize');
 const config = require('../config/config.json');
 const developmentConfig = config.development;
-const username = developmentConfig.username;
-const password = developmentConfig.password;
-const database = developmentConfig.database;
-const host = developmentConfig.host;
-const port = developmentConfig.port;
-const dialect = developmentConfig.dialect;
-const sequelize = new Sequelize(database, username, password, {
-  host: host,
-  port: port,
-  dialect: dialect
-});
+const sequelize = new Sequelize(developmentConfig);
 
 const Member = sequelize.define('member', {
   id: {
@@ -34,6 +24,7 @@ const Cart = sequelize.define('cart', {
   id: {
     type: Sequelize.STRING,
     primaryKey: true,
+    autoIncrement: true, 
   },
   member_id: {
     type: Sequelize.INTEGER,
@@ -65,7 +56,7 @@ const OrderProduct = sequelize.define('order_product', {
   total_price: Sequelize.INTEGER,
 });
 
-const ProductMain = sequelize.define('productmain', {
+const ProductMain = sequelize.define('ProductMain', {
   id: {
     type: Sequelize.STRING,
     primaryKey: true,
@@ -94,6 +85,7 @@ const CartProduct = sequelize.define('cart_products', {
   id: {
     type: Sequelize.STRING,
     primaryKey: true,
+    autoIncrement: true, 
   },
   cart_id: {
     type: Sequelize.INTEGER,
