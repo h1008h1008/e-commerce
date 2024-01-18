@@ -156,7 +156,7 @@ const pay_controller = {
     },
     renderReturnPageHandler: async (req, res) => {
         console.log('clientReturn:', req.body, req.query);
-        res.render("index", { pageTitle: "Checkout Page" });
+        res.render("payment");
     },
 }
 

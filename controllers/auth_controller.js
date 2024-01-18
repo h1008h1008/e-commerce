@@ -105,24 +105,33 @@ const auth_controller = {
   RegisterPageHandler: async (req, res) => {
     const { emailaddress, password } = req.body;
     bcrypt.hash(password, 10).then((hash) => {
-      Member.create({
-        email: emailaddress,
-        name: null,
-        address: null,
-        phone_number: null,
-        account: null,
-        passhash: hash,
-        options: null,
-      })
-        .then(() => {
-          res.json("USER REGISTERED");
+      Member.findOne({ where: { email: emailaddress } })
+        .then(member => {
+          if (member) {
+            res.status(400).json("Email already registered");
+          } else {
+            Member.create({
+              email: emailaddress,
+              name: null,
+              address: null,
+              phone_number: null,
+              account: null,
+              passhash: hash,
+              options: null,
+            })
+            .then(() => {
+              res.json("USER REGISTERED");
+            })
+            .catch((err) => {
+              res.status(400).json({ error: err });
+            });
+          }
         })
         .catch((err) => {
-          if (err) {
-            res.status(400).json({ error: err });
-          }
+          res.status(500).json({ error: err });
         });
     });
+
   },
   forgetHandler: async (req, res) => {
     const { emailaddress } = req.body;

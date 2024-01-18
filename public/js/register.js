@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
           .then((response) => {
             if (!response.ok) {
+              if (response.status === 400) {
+                alert("User already registered");
+                return Promise.reject(new Error("User already registered"));
+              }
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             console.log(response);
